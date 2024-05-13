@@ -19,6 +19,8 @@ public:
         {
             i++;
         }
+        // 1. 用低于int型数据长度一位的数据border判断了超过int型数据长度的值 
+        // 2. 将超过最大值和低于最小值的情况都包括了
         while (i < str.size() && isdigit(str[i]))
         {
             int r = str[i] - '0';
