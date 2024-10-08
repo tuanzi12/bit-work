@@ -22,8 +22,9 @@ void testlist2()
 	ListPopFront(plist);
 	ListPrint(plist);
 }
+
 int main()
 {
-	testlist2();
+	testlist1();
 	return 0;
 }
