@@ -9,6 +9,9 @@ void testlist1()
 	printf("\n");
 	ListPopBack(plist);
 	ListPrint(plist);
+
+	ListDestory(plist);
+	plist = NULL;
 }
 
 void testlist2()

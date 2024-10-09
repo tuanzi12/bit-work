@@ -26,7 +26,15 @@ ListNode* ListNodeInit()
 // 双向链表销毁
 void ListDestory(ListNode* pHead)
 {
-
+	assert(pHead);
+	ListNode* cur = pHead->_next;
+	while (cur != pHead)
+	{
+		ListNode* next = cur->_next;
+		cur = cur->_next;
+		free(cur);
+	}
+	free(pHead);
 }
 // 双向链表打印
 void ListPrint(ListNode* pHead)
@@ -105,7 +113,15 @@ void ListPopFront(ListNode* pHead)
 // 双向链表查找
 ListNode* ListFind(ListNode* pHead, LTDataType x)
 {
-
+	assert(pHead);
+	ListNode* cur = pHead->_next;
+	while (cur != pHead)
+	{
+		if (cur->_data == x)
+			return cur;
+		cur = cur->_next;
+	}
+	return NULL;
 }
 // 双向链表在pos的前面进行插入
 void ListInsert(ListNode* pos, LTDataType x)
