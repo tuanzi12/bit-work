@@ -33,6 +33,5 @@ int QueueSize(Queue* q);
 int QueueEmpty(Queue* q);
 // 销毁队列 
 void QueueDestroy(Queue* q);
-
-
-
+//打印队列
+void QueuePrint(Queue* q);

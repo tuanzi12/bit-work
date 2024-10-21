@@ -1,4 +1,5 @@
 #include "Stack.h"
+#include "Queue.h"
 void Stacktest1()
 {
 	Stack st;
@@ -13,9 +14,19 @@ void Stacktest1()
 	StackDestroy(&st);
 
 }
+void Queuetest1()
+{
+	Queue qt;
+	QueueInit(&qt);
+	QueuePush(&qt, 2);
+	QueuePrint(&qt);
+	QueueDestroy(&qt);
+}
+
 int main()
 {
-	Stacktest1();
+	//Stacktest1();
+	Queuetest1();
 	return 0;
 
 }
