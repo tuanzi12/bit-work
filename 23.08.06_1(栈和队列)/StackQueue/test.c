@@ -25,7 +25,7 @@ void Queuetest1()
 
 int main()
 {
-	//Stacktest1();
+	Stacktest1();
 	Queuetest1();
 	return 0;
 
