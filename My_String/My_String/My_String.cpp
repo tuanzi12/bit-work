@@ -3,7 +3,7 @@
 namespace mystr
 {
     //赋值重载
-    string& string::operator=(const string& s)
+   /* string& string::operator=(const string& s)
     {
         if (this != &s)
         {
@@ -13,6 +13,16 @@ namespace mystr
             delete[] _str;
             strcpy(tmp, s._str);
             _str = tmp;
+        }
+        return *this;
+    }*/
+    //新版 深赋值
+    string& string::operator=(const string& s)
+    {
+        if (this != &s)
+        {
+            string tmp(s);
+            swap(tmp);
         }
         return *this;
     }
@@ -88,7 +98,7 @@ namespace mystr
 
     void string::append(const char* str)
     {
-        size_t len = strlen(_str);
+        size_t len = strlen(str);
         if ((_size + len) > _capacity)
         {
             reserve(_size + len);
@@ -141,23 +151,40 @@ namespace mystr
             return ptr - _str;
         }
     }
-    ostream& operator<<(ostream& _cout, const mystr::string& s)
+
+    string string::substr(size_t pos, size_t len)
     {
-        for (auto ch : s)
+        assert(pos < _size);
+        size_t end = pos + len;
+        if (len == npos || pos + len >= _size)
+        {
+            end = _size;
+        }
+        string str;
+        for (int i = pos; i < end; i++)
+        {
+            str += _str[i];
+        }
+        return str;
+
+    }
+    ostream& mystr::operator<<(ostream& _cout, const mystr::string& s)
+    {
+        for (auto& ch : s)
         {
             _cout << ch;
         }
         return _cout;
     }
 
-    istream& operator>>(istream& _cin, mystr::string& s)
+    istream& mystr::operator>>(istream& _cin, mystr::string& s)
     {
         s.clear();
         char buff[128];//定义缓冲区
         char ch = _cin.get();//提取单个字符
-        int sub = 0;//缓冲区下标
+        size_t sub = 0;//缓冲区下标
 
-        while (ch != ' ' && ch != '\n')//直到空字符或回车结束提取
+        while (ch != ' ' && ch != '\n' && !_cin.eof())//直到空字符或回车结束提取
         {
             buff[sub++] = ch;//往缓冲区存入字符
             if (sub == 127)
@@ -169,7 +196,7 @@ namespace mystr
             ch = _cin.get();
         }
 
-        if (sub > 0)//以防缓冲区还有数据未存入
+        if (sub != 0)//以防缓冲区还有数据未存入
         {
             buff[sub] = '\0';
             s += buff;

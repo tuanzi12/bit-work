@@ -22,18 +22,31 @@ namespace mystr
             _str = new char[_capacity + 1];
             strcpy(_str, str);
         }
-
         //拷贝构造函数
         //默认生成的构造函数只支持浅拷贝，自行构造一个函数实现深拷贝
-        string(const string& s)
+        //旧版
+        /*string(const string& s)
         {
             _str = new char[s._capacity + 1];
             strcpy(_str, s._str);
             _size = s._size;
             _capacity = s._capacity;
+        }*/
+        //新版 利用深拷贝
+        string(const string& s)
+        {
+            string tmp(s._str);
+            swap(tmp);
         }
+
         //赋值重载
+        //深赋值
         string& operator=(const string& s);
+        string& operator=(string& s)
+        {
+            swap(s);
+            return *this;
+        }
 
         //析构函数
         ~string()
@@ -72,7 +85,7 @@ namespace mystr
 
         string& operator+=(char c)
         {
-            insert(_size, c);
+            push_back(c);
             return *this;
         }
 
@@ -174,6 +187,8 @@ namespace mystr
 
         // 删除pos位置上的元素，并返回该元素的下一个位置
         string& erase(size_t pos, size_t len);
+
+        string substr(size_t pos = 0, size_t len = npos);
     private:
         char* _str;
         size_t _capacity;

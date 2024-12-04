@@ -80,13 +80,13 @@ namespace mystr
 		cout << s1.c_str() << endl;*/
 	}
 
-	/*void test_string4()
+	void test_string4()
 	{
 		string s1("hello world");
 		string s2("xxxx");
-		std::swap(s1, s2);
+		/*std::swap(s1, s2);*/
 		s1.swap(s2);
-
+		cout << s1.c_str() << " " << s2.c_str() << endl;
 
 		string str("https://legacy.cplusplus.com/reference/string/string/substr/");
 		string sub1, sub2, sub3;
@@ -100,7 +100,7 @@ namespace mystr
 
 		sub3 = str.substr(pos2 + 1);
 		cout << sub3.c_str() << endl;
-	}*/
+	}
 
 	void test_string5()
 	{
@@ -130,37 +130,41 @@ namespace mystr
 		cout << s2 << endl;
 	}
 
-	//void test_string7()
-	//{
-	//	string s1("hello world");
-	//	cout << s1.c_str() << endl;
-	//	cout << s1 << endl;
 
-	//	s1.clear();
-	//	cout << s1.c_str() << endl;
-	//	cout << s1 << endl;
-	//}
+	void test_string7()
+	{
+		string s1("hello world");
+		cout << s1.c_str() << endl;
+		cout << s1 << endl;
 
-	//void test_string8()
-	//{
-	//	string s1("hello world");
-	//	string s2(s1);
+		s1.clear();
+		cout << s1.c_str() << endl;
+		cout << s1 << endl;
+	}
 
-	//	cout << s1 << endl;
-	//	cout << s2 << endl;
+	void test_string8()
+	{
+		string s1("hello world");
+		string s2(s1);
 
-	//	string s3("xxxxxxxxxxxxxxxx");
-	//	s1 = s3;
-	//	cout << s1 << endl;
-	//	cout << s3 << endl;
-	//}
+		cout << s1 << endl;
+		cout << s2 << endl;
+
+		string s3("xxxxxxxxxxxxxxxx");
+		s1 = s3;
+		cout << s1 << endl;
+		cout << s3 << endl;
+	}
 }
 int main()
 {
-	/*mystr::test_string1();
+	mystr::test_string1();
 	mystr::test_string2();
 	mystr::test_string3();
-	mystr::test_string5();*/
+	mystr::test_string4();
+	mystr::test_string5();
 	mystr::test_string6();
+	mystr::test_string7();
+	mystr::test_string8();
 	return 0;
 }
