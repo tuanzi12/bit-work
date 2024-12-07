@@ -60,15 +60,6 @@ void TestCountSort()
 
 int main()
 {
-	/*TestOP();*/
-	/*TestInsertSort();
 	TestShellSort();
-	TestBubbleSort();*/
-	//TestHeapSort();
-	//TestSelectSort();
-	//TestHeapSort();
-	/*TestQuickSort();*/
-	TestMergeSort();
-	TestCountSort();
 	return 0;
 }
