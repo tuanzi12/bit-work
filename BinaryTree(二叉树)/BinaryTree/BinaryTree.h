@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+#include <math.h>
 typedef int BTDataType;
 
 typedef struct BinaryTreeNode
@@ -13,7 +14,7 @@ typedef struct BinaryTreeNode
 
 BTNode* BuyNode(int x);
 // 通过前序遍历的数组"ABD##E#H##CF##G##"构建二叉树
-//BTNode* BinaryTreeCreate(BTDataType* a, int n, int* pi);
+BTNode* BinaryTreeCreate(BTDataType* a, int n, int* pi);
 // 二叉树销毁
 void BinaryTreeDestory(BTNode* root);
 // 二叉树节点个数
@@ -34,3 +35,5 @@ void BinaryTreePostOrder(BTNode* root);
 void BinaryTreeLevelOrder(BTNode* root);
 // 判断二叉树是否是完全二叉树
 int BinaryTreeComplete(BTNode* root);
+//二叉树高度
+int BinaryTreeHeight(BTNode* root);

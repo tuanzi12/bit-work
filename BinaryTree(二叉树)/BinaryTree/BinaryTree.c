@@ -14,21 +14,26 @@ BTNode* BuyNode(int x)
 	return node;
 }
 
-// 通过前序遍历的数组"ABD##E#H##CF##G##"构建二叉树
-//BTNode* BinaryTreeCreate(BTDataType* a, int n, int* pi)
-//{
-//	if (a[*pi] == '#')
-//	{
-//		return NULL;
-//	}
-//	BTNode* node = (BTNode*)malloc(sizeof(BTNode));
-//	node->_data = a[*pi];
-//	++*pi;
-//	node->_left = BinaryTreeCreate(a, n, pi);
-//	++*pi;
-//	node->_right = BinaryTreeCreate(a, n, pi);
-//	return node;
-//}
+ //通过前序遍历的数组"ABD##E#H##CF##G##"构建二叉树
+BTNode* BinaryTreeCreate(BTDataType* a, int n, int* pi)
+{
+	if (a[*pi] == '#')
+	{
+		return NULL;
+	}
+	BTNode* node = (BTNode*)malloc(sizeof(BTNode));
+	if (node == NULL)
+	{
+		perror("malloc fail");
+		exit(-1);
+	}
+	node->_data = a[*pi];
+	++*pi;
+	node->_left = BinaryTreeCreate(a, n, pi);
+	++*pi;
+	node->_right = BinaryTreeCreate(a, n, pi);
+	return node;
+}
 
 // 二叉树销毁
 void BinaryTreeDestory(BTNode* root)
@@ -196,4 +201,11 @@ int BinaryTreeComplete(BTNode* root)
 	return 1;
 }
 
-
+int BinaryTreeHeight(BTNode* root)
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+	return fmax(BinaryTreeHeight(root->_left), BinaryTreeHeight(root->_right)) + 1;
+}

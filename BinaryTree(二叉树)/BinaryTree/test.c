@@ -40,7 +40,7 @@ int main()
 
 	printf("TreeComplete£º%d\n", BinaryTreeComplete(node1));
 
-	/*printf("TreeHeight:%d\n", BinaryTreeHeight(node1));*/
+	printf("TreeHeight:%d\n", BinaryTreeHeight(node1));
 
 	BinaryTreeDestory(node1);
 	node1 = NULL;
