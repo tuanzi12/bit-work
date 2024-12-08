@@ -33,6 +33,9 @@ int main()
 	BinaryTreePostOrder(node1);
 	printf("\n");
 
+	BinaryTreeLevelOrder(node1);
+	printf("\n");
+
 	printf("TreeSize£º%d\n", BinaryTreeSize(node1));
 
 	//size = 0;
