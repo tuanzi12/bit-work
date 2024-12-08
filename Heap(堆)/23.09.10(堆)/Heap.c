@@ -34,7 +34,7 @@ void HeapPush(Heap* hp, HPDataType x)
 	}
 	hp->_a[hp->_size] = x;
 	hp->_size++;
-	AdjustUp(hp->_a, hp->_size - 1);
+	AdjustUp(hp->_a,hp->_size - 1);
 }
 
 //向上调整

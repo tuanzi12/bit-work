@@ -81,7 +81,16 @@ void HeapSort(int* a, int n)
 int main()
 {
 	//CreateNDate();
-	PrintTopK("filename.txt", 5);
-	
+	int a[] = { 2,3,5,7,4,6,8 };
+	/*HeapSort(a, sizeof(a) / sizeof(int));
+
+	PrintTopK("data.txt", 5);*/
+	Heap hp;
+	HeapInit(&hp);
+	for (int i = 0; i < sizeof(a)/sizeof(int); i++)
+	{
+		HeapPush(&hp, a[i]);
+	}
+		HeapPrint(&hp);
 	return 0;
 }
